@@ -19,4 +19,3 @@ object Config {
 }
 
 case class Config(width: Int, height: Int, x0: Int, y0: Int)
-

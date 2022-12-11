@@ -29,7 +29,6 @@ object Main extends IOApp {
     _ <- if (newGameState.snake.isDead || newGameState.isGameOver) liftF[IO, GameState, Unit](IO()) else loop(config, term, ref)
   } yield ()
 
-
   def pressEnterToRestart(ref: Ref[IO, KeyType]): ReaderT[IO, Env, Unit] = for {
     input <- ReaderT.liftF(UserInput.read(ref))
     _ <- if (input == KeyType.Enter) {
